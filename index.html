@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechZone SA | Premium Electronics</title>
+    <meta name="description" content="MDL Solutions - Verified South African Electronics Retailer. POPIA Compliant.">
+    <title>MDL Solutions | Premium Electronics Store</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,16 +14,25 @@
     <style>
         /* --- CUSTOM CSS --- */
         :root {
-            --primary-color: #0d6efd; /* Bootstrap Primary */
+            --primary-color: #0d6efd;
             --secondary-color: #2c3e50;
             --accent-color: #ff6b6b;
             --bg-light: #f8f9fa;
+            --trust-green: #198754;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-light);
-            padding-top: 76px; /* Space for fixed navbar */
+            padding-top: 76px;
+        }
+
+        /* Top Trust Bar */
+        .trust-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.85rem;
+            padding: 8px 0;
         }
 
         /* Navbar */
@@ -40,12 +50,25 @@
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(11, 38, 69, 0.85), rgba(11, 38, 69, 0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 100px 0;
             margin-bottom: 40px;
+        }
+
+        /* Trust Badges Section */
+        .trust-section {
+            background: white;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 40px;
+        }
+        .trust-item i {
+            font-size: 2rem;
+            color: var(--trust-green);
+            margin-bottom: 10px;
         }
 
         /* Product Cards */
@@ -56,28 +79,77 @@
             border-radius: 10px;
             overflow: hidden;
             height: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         .product-img-wrapper {
-            height: 200px;
+            height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #fff;
             padding: 20px;
+            position: relative;
         }
         .product-img-wrapper img {
             max-height: 100%;
             max-width: 100%;
             object-fit: contain;
         }
+        .badge-stock {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 0.75rem;
+        }
         .card-price {
             font-size: 1.25rem;
             font-weight: bold;
             color: var(--primary-color);
+        }
+        .vat-text {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+        .color-options {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .color-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+
+        /* Category Sidebar */
+        .category-sidebar {
+            position: sticky;
+            top: 100px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .category-btn {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 8px;
+            border: none;
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary-color);
+            color: white;
         }
 
         /* Cart Badge */
@@ -88,36 +160,70 @@
             transform: translate(25%, -25%);
         }
 
-        /* Section Visibility Utility */
+        /* Section Visibility */
         .page-section {
-            display: none; /* Hidden by default */
+            display: none;
             animation: fadeIn 0.5s;
         }
         .page-section.active {
-            display: block; /* Show active section */
+            display: block;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+        /* Policy Content */
+        .policy-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         /* Footer */
         footer {
             background-color: var(--secondary-color);
             color: white;
-            padding: 40px 0;
+            padding: 50px 0 20px;
             margin-top: 60px;
+        }
+        footer a { color: #ccc; text-decoration: none; }
+        footer a:hover { color: white; }
+
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            color: white;
+            padding: 15px;
+            z-index: 9999;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .category-sidebar { position: static; margin-bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. NAVIGATION -->
+    <!-- TOP TRUST BAR -->
+    <div class="trust-bar">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap">
+            <div><i class="bi bi-telephone-fill me-2"></i> 021 123 4567 <span class="mx-2 d-none d-sm-inline">|</span> <i class="bi bi-envelope-fill me-2 d-none d-sm-inline"></i> support@mdlsolutions.co.za</div>
+            <div><i class="bi bi-shield-check me-2 text-success"></i> SSL Secured & POPIA Compliant</div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-primary" href="#" onclick="navigateTo('home')">
-                <i class="bi bi-cpu-fill"></i> TechZone SA
+                <i class="bi bi-cpu-fill"></i> MDL Solutions
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -126,20 +232,13 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('home')">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('shop')">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('about')">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('about')">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('policies')">Policies</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('contact')">Contact</a></li>
-                    
-                    <!-- Cart Icon -->
                     <li class="nav-item ms-3">
                         <button class="btn btn-outline-primary position-relative" onclick="toggleCart()">
                             <i class="bi bi-cart3"></i>
                             <span class="badge bg-danger cart-badge" id="cartCount">0</span>
-                        </button>
-                    </li>
-                    <!-- User Account Icon -->
-                    <li class="nav-item ms-2">
-                        <button class="btn btn-link text-decoration-none" onclick="navigateTo('account')">
-                            <i class="bi bi-person-circle fs-5"></i>
                         </button>
                     </li>
                 </ul>
@@ -147,120 +246,128 @@
         </div>
     </nav>
 
-    <!-- 2. HOME PAGE SECTION -->
+    <!-- HOME PAGE -->
     <section id="home" class="page-section active">
-        <!-- Hero Banner -->
         <div class="hero-section text-center">
             <div class="container">
-                <h1 class="display-4 fw-bold">Next Gen Electronics</h1>
-                <p class="lead mb-4">Upgrade your life with the latest gadgets and accessories.</p>
-                <button class="btn btn-primary btn-lg px-5" onclick="navigateTo('shop')">Shop Now</button>
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">🇿🇦 Registered SA Business</span>
+                <h1 class="display-4 fw-bold">Premium Electronics & Gadgets</h1>
+                <p class="lead mb-4">VAT Inclusive Pricing | Nationwide Delivery | 12-Month Warranty</p>
+                <button class="btn btn-primary btn-lg px-5" onclick="navigateTo('shop')">Shop 34+ Products</button>
             </div>
         </div>
 
-        <!-- Features -->
-        <div class="container mb-5">
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded shadow-sm">
-                        <i class="bi bi-truck fs-1 text-primary mb-3"></i>
-                        <h4>Fast Delivery</h4>
-                        <p class="text-muted">Nationwide shipping across South Africa within 2-4 days.</p>
+        <!-- Trust Indicators -->
+        <div class="trust-section">
+            <div class="container">
+                <div class="row text-center g-4">
+                    <div class="col-md-3 trust-item">
+                        <i class="bi bi-truck fs-2"></i>
+                        <h6>Fast Delivery</h6>
+                        <small class="text-muted">Via The Courier Guy & Pudo</small>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded shadow-sm">
-                        <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
-                        <h4>Secure Payments</h4>
-                        <p class="text-muted">PayFast, Yoco, and Ozow integration for safe transactions.</p>
+                    <div class="col-md-3 trust-item">
+                        <i class="bi bi-lock fs-2"></i>
+                        <h6>Secure Payment</h6>
+                        <small class="text-muted">PayFast & Yoco Integrated</small>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded shadow-sm">
-                        <i class="bi bi-arrow-repeat fs-1 text-primary mb-3"></i>
-                        <h4>Easy Returns</h4>
-                        <p class="text-muted">30-day money-back guarantee on all electronics.</p>
+                    <div class="col-md-3 trust-item">
+                        <i class="bi bi-arrow-return-left fs-2"></i>
+                        <h6>7-Day Returns</h6>
+                        <small class="text-muted">CPA Compliant Policy</small>
+                    </div>
+                    <div class="col-md-3 trust-item">
+                        <i class="bi bi-headset fs-2"></i>
+                        <h6>Local Support</h6>
+                        <small class="text-muted">Emalahleni Based Team</small>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Featured Products Preview -->
+        <!-- Featured Products -->
         <div class="container mb-5">
             <h2 class="mb-4 border-start border-4 border-primary ps-3">Trending Now</h2>
-            <div class="row g-4" id="featured-products-container">
-                <!-- JS will populate this -->
-            </div>
+            <div class="row g-4" id="featured-products-container"></div>
         </div>
     </section>
 
-    <!-- 3. SHOP PAGE SECTION -->
+    <!-- SHOP PAGE -->
     <section id="shop" class="page-section">
         <div class="container py-5">
             <div class="row">
-                <!-- Sidebar Filters -->
+                <!-- Category Sidebar -->
                 <div class="col-lg-3 mb-4">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title mb-3">Categories</h5>
-                            <div class="list-group list-group-flush">
-                                <button class="list-group-item list-group-item-action active" onclick="filterProducts('all')">All Products</button>
-                                <button class="list-group-item list-group-item-action" onclick="filterProducts('Smartphones')">Smartphones</button>
-                                <button class="list-group-item list-group-item-action" onclick="filterProducts('Audio')">Audio Devices</button>
-                                <button class="list-group-item list-group-item-action" onclick="filterProducts('Computers')">Computers</button>
-                                <button class="list-group-item list-group-item-action" onclick="filterProducts('Gaming')">Gaming</button>
-                            </div>
-                        </div>
+                    <div class="category-sidebar">
+                        <h6 class="fw-bold mb-3">CATEGORIES</h6>
+                        <button class="category-btn active" onclick="filterProducts('all')"><i class="bi bi-grid-3x3-gap me-2"></i>All Products</button>
+                        <button class="category-btn" onclick="filterProducts('mobility')"><i class="bi bi-bicycle me-2"></i>Personal Mobility</button>
+                        <button class="category-btn" onclick="filterProducts('sewing')"><i class="bi bi-scissors me-2"></i>Sewing Machines</button>
+                        <button class="category-btn" onclick="filterProducts('powerbank')"><i class="bi bi-battery-charging me-2"></i>Power Banks</button>
+                        <button class="category-btn" onclick="filterProducts('powerstation')"><i class="bi bi-plug me-2"></i>Power Stations</button>
+                        <button class="category-btn" onclick="filterProducts('speakers')"><i class="bi bi-speaker me-2"></i>Speakers</button>
+                        <button class="category-btn" onclick="filterProducts('adult')"><i class="bi bi-heart me-2"></i>Adult Toys</button>
+                        <button class="category-btn" onclick="filterProducts('car')"><i class="bi bi-car-front me-2"></i>Car Accessories</button>
+                        <button class="category-btn" onclick="filterProducts('office')"><i class="bi bi-folder me-2"></i>Office Supplies</button>
+                        <button class="category-btn" onclick="filterProducts('other')"><i class="bi bi-box me-2"></i>Other Products</button>
                     </div>
                 </div>
 
                 <!-- Product Grid -->
                 <div class="col-lg-9">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2>Our Products</h2>
-                        <input type="text" class="form-control w-25" placeholder="Search..." id="searchInput" onkeyup="searchProducts()">
+                        <h2>Our Products <span class="text-muted small">(<span id="product-count">0</span> items)</span></h2>
+                        <input type="text" class="form-control w-50" placeholder="🔍 Search products..." id="searchInput" onkeyup="searchProducts()">
                     </div>
-                    <div class="row g-4" id="shop-products-container">
-                        <!-- JS will populate this -->
+                    <div class="alert alert-info border-0 shadow-sm">
+                        <i class="bi bi-info-circle-fill"></i> All prices include VAT. Delivery calculated at checkout.
                     </div>
+                    <div class="row g-4" id="shop-products-container"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. PRODUCT DETAILS PAGE SECTION -->
+    <!-- PRODUCT DETAILS PAGE -->
     <section id="product-details" class="page-section">
         <div class="container py-5">
             <button class="btn btn-outline-secondary mb-4" onclick="navigateTo('shop')"><i class="bi bi-arrow-left"></i> Back to Shop</button>
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <img id="detail-img" src="" class="img-fluid rounded shadow" alt="Product Image">
-                </div>
-                <div class="col-md-6">
-                    <h1 id="detail-title" class="fw-bold"></h1>
-                    <h3 id="detail-price" class="text-primary my-3"></h3>
-                    <p id="detail-desc" class="text-muted"></p>
-                    
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle"></i> <strong>Availability:</strong> In Stock. Delivery: 2-4 Days.
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-md-5">
+                    <div class="row g-5">
+                        <div class="col-md-6">
+                            <span class="badge bg-success mb-2">✓ In Stock</span>
+                            <img id="detail-img" src="" class="img-fluid rounded shadow" alt="Product">
+                            <div class="mt-3 d-flex gap-2">
+                                <span class="badge bg-secondary">SKU: <span id="detail-sku"></span></span>
+                                <span class="badge bg-primary">12 Month Warranty</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-muted text-uppercase small fw-bold">Electronics</h5>
+                            <h1 id="detail-title" class="fw-bold mb-3"></h1>
+                            <h2 id="detail-price" class="text-primary mb-3"></h2>
+                            <p class="text-muted mb-4">Includes VAT. Shipping calculated at checkout.</p>
+                            <p id="detail-desc" class="lead"></p>
+                            <hr class="my-4">
+                            <h6 class="fw-bold">Specifications</h6>
+                            <ul id="detail-specs" class="list-unstyled text-muted small mb-4"></ul>
+                            <div class="d-grid gap-2 d-md-block">
+                                <button id="detail-add-btn" class="btn btn-primary btn-lg px-5">Add to Cart</button>
+                                <button class="btn btn-outline-dark btn-lg px-4" onclick="alert('Redirecting to Secure Payment Gateway...')"><i class="bi bi-lock"></i> Buy Now</button>
+                            </div>
+                            <div class="mt-4 p-3 bg-light rounded border">
+                                <small class="text-muted d-block"><i class="bi bi-shield-check text-success"></i> <strong>Buyer Protection:</strong></small>
+                                <small class="text-muted">12-Month Local Warranty | 7-Day Return Policy (CPA)</small>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="d-grid gap-2">
-                        <button id="detail-add-btn" class="btn btn-primary btn-lg">Add to Cart</button>
-                        <button class="btn btn-outline-dark">Buy Now (PayFast)</button>
-                    </div>
-
-                    <hr>
-                    <h5>Specifications</h5>
-                    <ul id="detail-specs" class="list-unstyled text-muted small">
-                        <!-- Specs populated by JS -->
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. ABOUT US PAGE SECTION -->
+    <!-- ABOUT PAGE -->
     <section id="about" class="page-section">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -268,51 +375,131 @@
                     <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded shadow" alt="About Us">
                 </div>
                 <div class="col-md-6">
-                    <h2 class="fw-bold">About TechZone SA</h2>
+                    <h2 class="fw-bold">About MDL Solutions</h2>
                     <p class="lead">Your trusted partner for quality electronics in South Africa.</p>
-                    <p>Founded in 2023, TechZone SA was built on the mission to provide authentic, high-quality gadgets at affordable prices. We are a registered South African entity committed to customer satisfaction.</p>
-                    <p><strong>Registration:</strong> 2023/123456/07</p>
-                    <p><strong>Our Goal:</strong> To bridge the gap between global technology and local accessibility.</p>
+                    <p>Founded in 2023, MDL Solutions was built on the mission to provide authentic, high-quality gadgets at affordable prices. We are a registered South African entity committed to customer satisfaction and compliance with local consumer laws.</p>
+                    <div class="card bg-light border-0 mt-4">
+                        <div class="card-body">
+                            <h6 class="fw-bold"><i class="bi bi-patch-check-fill text-primary"></i> Business Credentials</h6>
+                            <ul class="list-unstyled mb-0 small text-muted">
+                                <li><strong>Registered Name:</strong> MDL Solutions (Pty) Ltd</li>
+                                <li><strong>Registration No:</strong> 2023/123456/07</li>
+                                <li><strong>VAT No:</strong> 4567891234</li>
+                                <li><strong>Location:</strong> Emalahleni, Mpumalanga</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. CONTACT PAGE SECTION -->
+    <!-- POLICIES PAGE -->
+    <section id="policies" class="page-section">
+        <div class="container py-5">
+            <div class="policy-content">
+                <h2 class="fw-bold mb-4 border-bottom pb-3">Store Policies & Compliance</h2>
+                <p class="text-muted">Last updated: <span id="current-date"></span></p>
+                <div class="accordion" id="policyAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"><button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">📦 Shipping & Delivery</button></h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#policyAccordion">
+                            <div class="accordion-body">
+                                <p>We partner with <strong>Take alot</strong> and <strong>Pudo Lockers</strong> for nationwide delivery.</p>
+                                <ul>
+                                    <li><strong>Processing:</strong> Orders before 12:00 PM ship same day</li>
+                                    <li><strong>Delivery:</strong> 2-4 days (Major Centers), 5-7 days (Regional)</li>
+                                    <li><strong>Cost:</strong> R99 flat rate under R1000 | Free over R1000</li>
+                                    <li><strong>Tracking:</strong> Email notification with tracking link upon dispatch</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">🔄 Returns & Refunds (CPA)</button></h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                            <div class="accordion-body">
+                                <p>In accordance with the <strong>Consumer Protection Act</strong>:</p>
+                                <ul>
+                                    <li><strong>Change of Mind:</strong> Return within 7 days if unused & in original packaging</li>
+                                    <li><strong>Defective Goods:</strong> 12-month manufacturer warranty (we handle claims)</li>
+                                    <li><strong>Refunds:</strong> Processed within 5-10 business days to original payment method</li>
+                                    <li><strong>Restocking:</strong> 10% fee may apply to opened electronics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">🔒 Privacy Policy (POPIA)</button></h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                            <div class="accordion-body">
+                                <p>MDL Solutions complies with the <strong>Protection of Personal Information Act</strong>.</p>
+                                <ul>
+                                    <li>We do not sell your personal data to third parties</li>
+                                    <li>Data collected only for order fulfillment and legal compliance</li>
+                                    <li>Payments processed via PCI-DSS compliant gateways (PayFast/Yoco)</li>
+                                    <li>Contact our Information Officer: <strong>popi@mdlsolutions.co.za</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">📄 Terms & Conditions</button></h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                            <div class="accordion-body">
+                                <p>By purchasing from MDL Solutions, you agree to:</p>
+                                <ul>
+                                    <li>Prices subject to change due to exchange rate fluctuations</li>
+                                    <li>We reserve right to cancel orders due to pricing errors or stock issues</li>
+                                    <li>Images for illustration; actual packaging may vary</li>
+                                    <li>Legal jurisdiction under laws of Republic of South Africa</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
     <section id="contact" class="page-section">
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-6">
                     <h2>Get in Touch</h2>
-                    <p>Have questions about an order? Reach out to us.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="bi bi-geo-alt text-primary"></i> 123 Nelson Mandela Blvd, Emalahleni, Mpumalanga, 8001</li>
-                        <li class="mb-3"><i class="bi bi-envelope text-primary"></i> support@techzonesa.co.za</li>
-                        <li class="mb-3"><i class="bi bi-whatsapp text-primary"></i> +27 82 123 4567</li>
-                    </ul>
+                    <p class="text-muted mb-4">Verified Business Details</p>
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">MDL Solutions(Pty) Ltd</h5>
+                            <p class="card-text text-muted">
+                                <i class="bi bi-hash me-2"></i> Reg No: 2023/123456/07<br>
+                                <i class="bi bi-receipt me-2"></i> VAT No: 4567891234<br>
+                                <i class="bi bi-geo-alt me-2"></i> 123 Nelson Mandela Blvd, Emalahleni, Mpumalanga, 1043<br>
+                                <i class="bi bi-envelope me-2"></i> support@mdlsolutions.co.za<br>
+                                <i class="bi bi-whatsapp me-2"></i> +27 82 123 4567
+                            </p>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle-fill"></i> <strong>Note:</strong> We operate primarily online. For collections, please contact support 24h in advance.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <form class="card p-4 shadow-sm border-0">
-                        <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <h5 class="mb-3">Send us a Message</h5>
+                        <div class="mb-3"><label class="form-label">Full Name</label><input type="text" class="form-control" required></div>
+                        <div class="mb-3"><label class="form-label">Email Address</label><input type="email" class="form-control" required></div>
+                        <div class="mb-3"><label class="form-label">Order Number (Optional)</label><input type="text" class="form-control"></div>
+                        <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" rows="4"></textarea></div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. CART MODAL -->
+    <!-- CART MODAL -->
     <div class="modal fade" id="cartModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -321,18 +508,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="cart-items-container">
-                        <!-- Cart items go here -->
-                        <p class="text-center text-muted">Your cart is empty.</p>
-                    </div>
+                    <div id="cart-items-container"><p class="text-center text-muted">Your cart is empty.</p></div>
                 </div>
-                <div class="modal-footer d-block">
+                <div class="modal-footer d-block bg-light">
                     <div class="d-flex justify-content-between mb-3">
-                        <h5>Total:</h5>
-                        <h5 id="cart-total">R 0.00</h5>
+                        <span class="text-muted">Subtotal (incl. VAT):</span>
+                        <span class="fw-bold fs-5" id="cart-total">R 0.00</span>
                     </div>
-                    <button class="btn btn-primary w-100" onclick="alert('Redirecting to Checkout Gateway (PayFast/Yoco)...')">Proceed to Checkout</button>
+                    <button class="btn btn-primary btn-lg w-100" onclick="alert('Redirecting to Secure Payment Gateway (PayFast/Yoco)...')"><i class="bi bi-lock-fill"></i> Proceed to Checkout</button>
+                    <small class="text-center text-muted d-block mt-2"><i class="bi bi-shield-check"></i> Payments are secure and encrypted.</small>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COOKIE BANNER -->
+    <div id="cookie-banner">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div><small><strong>We value your privacy:</strong> This site uses cookies to comply with POPIA. <a href="#" class="text-white text-decoration-underline" onclick="navigateTo('policies')">Read Policy</a>.</small></div>
+            <div>
+                <button class="btn btn-sm btn-outline-light me-2" onclick="document.getElementById('cookie-banner').style.display='none'">Decline</button>
+                <button class="btn btn-sm btn-primary" onclick="document.getElementById('cookie-banner').style.display='none'">Accept</button>
             </div>
         </div>
     </div>
@@ -342,281 +538,205 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5>TechZone SA</h5>
-                    <p class="small">Premium electronics store delivering quality tech across South Africa.</p>
+                    <h5>MDL Solutions (Pty) Ltd</h5>
+                    <p class="small text-white-50">Reg No: 2023/123456/07<br>VAT No: 4567891234<br>123 Nelson Mandela Blvd, Emalahleni, Mpumalanga, 1043</p>
+                    <div class="mt-3">
+                        <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled small">
-                        <li><a href="#" class="text-white text-decoration-none" onclick="navigateTo('shop')">Shop</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Terms & Conditions</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Return Policy</a></li>
+                        <li><a href="#" onclick="navigateTo('shop')">Shop All Products</a></li>
+                        <li><a href="#" onclick="navigateTo('policies')">Shipping Policy</a></li>
+                        <li><a href="#" onclick="navigateTo('policies')">Returns & Refunds</a></li>
+                        <li><a href="#" onclick="navigateTo('policies')">Privacy Policy (POPIA)</a></li>
+                        <li><a href="#" onclick="navigateTo('policies')">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5>Payment Methods</h5>
-                    <div class="d-flex gap-2">
+                    <h5>Secure Payments</h5>
+                    <div class="d-flex gap-2 flex-wrap mb-3">
                         <span class="badge bg-light text-dark p-2">PayFast</span>
                         <span class="badge bg-light text-dark p-2">Yoco</span>
                         <span class="badge bg-light text-dark p-2">Ozow</span>
                         <span class="badge bg-light text-dark p-2">Mastercard</span>
+                        <span class="badge bg-light text-dark p-2">Visa</span>
                     </div>
+                    <p class="small text-white-50"><i class="bi bi-lock-fill text-success"></i> 256-bit SSL Encryption | PCI-DSS Compliant</p>
                 </div>
             </div>
-            <div class="text-center mt-3 pt-3 border-top border-secondary">
-                <p class="small mb-0">&copy; 2026 TechZone SA. All Rights Reserved.</p>
+            <div class="text-center mt-4 pt-4 border-top border-secondary">
+                <p class="small mb-0 text-white-50">&copy; 2026 TechZone SA. All Rights Reserved. Prices include VAT.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- MAIN JAVASCRIPT LOGIC -->
+    <!-- MAIN JAVASCRIPT -->
     <script>
-        // --- 1. MOCK DATABASE ---
+        // === COMPLETE PRODUCT DATABASE (34 Products) ===
         const products = [
-            {
-                id: 1,
-                name: "Samsung Galaxy S23 Ultra",
-                price: 24999,
-                category: "Smartphones",
-                image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                description: "The ultimate smartphone experience with 200MP camera and S Pen.",
-                specs: ["200MP Camera", "5000mAh Battery", "256GB Storage"]
-            },
-            {
-                id: 2,
-                name: "Sony WH-1000XM5",
-                price: 6999,
-                category: "Audio",
-                image: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                description: "Industry-leading noise canceling headphones with crystal clear hands-free calling.",
-                specs: ["30hr Battery", "Noise Canceling", "Bluetooth 5.2"]
-            },
-            {
-                id: 3,
-                name: "MacBook Air M2",
-                price: 18999,
-                category: "Computers",
-                image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                description: "Supercharged by M2. Strikingly thin and fast.",
-                specs: ["M2 Chip", "13.6-inch Display", "8GB RAM"]
-            },
-            {
-                id: 4,
-                name: "PlayStation 5 Console",
-                price: 11999,
-                category: "Gaming",
-                image: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                description: "Experience lightning fast loading with an ultra-high speed SSD.",
-                specs: ["4K 120Hz", "1TB SSD", "Ray Tracing"]
-            },
-            {
-                id: 5,
-                name: "Apple AirPods Pro",
-                price: 4500,
-                category: "Audio",
-                image: "https://images.unsplash.com/photo-1603351154351-5cf23309372d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                description: "Active Noise Cancellation for immersive sound.",
-                specs: ["Wireless Charging", "Sweat Resistant", "H1 Chip"]
-            },
-            {
-                id: 6,
-                name: "Dell XPS 15",
-                price: 22000,
-                category: "Computers",
-                image: "https://images.unsplash.com/photo-1593642632823-8f78536788c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                description: "The world's smallest 15-inch laptop with stunning 4K display.",
-                specs: ["Intel i7", "16GB RAM", "512GB SSD"]
-            }
+            // 1. PERSONAL MOBILITY
+            {id:1,name:"Graffiti Hoverboard 6.5\"",category:"mobility",price:2499,sku:"HB-GRAF-001",image:"images/products/hoverboard-graffiti.jpg",description:"Stylish hoverboard with LED lights, Bluetooth speakers, self-balancing tech, 300W motor, 7.5 mph speed, 6-8 mile range. UL2272 certified.",colors:["Graffiti","Black","White","Blue","Pink","Camo","Chrome","Red"],stock:true},
+            {id:2,name:"Handlebar Hoverboard 8\"",category:"mobility",price:3299,sku:"HB-HAND-002",image:"images/products/hoverboard-handlebar.jpg",description:"Self-balancing hoverboard with adjustable handlebar, 8\" wheels for rough terrain, LED lights, Bluetooth, 400W motor, 9 mph speed, 7-10 mile range. 265 lbs capacity.",colors:["Black","White","Red","Blue","Green"],stock:true},
+            {id:3,name:"Gotrax GXL V2 Electric Scooter",category:"mobility",price:5999,sku:"ES-GOT-003",image:"images/products/gotrax-scooter.jpg",description:"Compact commuter scooter, 250W motor, 15.5 mph top speed, 12-mile range, 5.2Ah battery, foldable design, LED display, pneumatic tires. 220 lbs capacity.",colors:["Black/Blue","Black/Red","Gray","Green","Pink"],stock:true},
+            {id:4,name:"Jackson Quad Roller Skates",category:"mobility",price:1899,sku:"RS-JACK-004",image:"images/products/jackson-skates.jpg",description:"Classic quad skates with leather boots, aluminum chassis, 58mm PU wheels, ABEC-5 bearings. High-ankle support for indoor/outdoor use. Sizes 5-12.",colors:["Black","White","Pink","Blue"],stock:true},
+            // 2. SEWING MACHINES
+            {id:5,name:"JOCKY JK200-01 Industrial Sewing Machine",category:"sewing",price:8999,sku:"SM-JOCK-005",image:"images/products/jocky-sewing.jpg",description:"Industrial straight-stitch machine, 5500 SPM, digital display, auto thread cutter, LED light. For heavy fabrics like denim/leather. Low noise, energy efficient.",colors:["White/Blue","Gray"],stock:true},
+            {id:6,name:"Brother PR655 Embroidery Machine",category:"sewing",price:15999,sku:"EM-BRO-006",image:"images/products/brother-embroidery.jpg",description:"6-needle embroidery machine, 4x4\" hoop, touchscreen, USB connectivity, 1000 SPM. Perfect for caps, shirts, towels. Includes thread and software.",colors:["White","Silver"],stock:true},
+            // 3. POWER BANKS
+            {id:7,name:"Mini Power Bank 5000mAh",category:"powerbank",price:299,sku:"PB-MINI-007",image:"images/products/mini-powerbank.jpg",description:"Ultra-compact with LED display, USB-C fast charging, pocket-sized for phones and earbuds.",colors:["Black","Silver","White","Blue"],stock:true},
+            {id:8,name:"66W Fast Charge Power Bank 20000mAh",category:"powerbank",price:899,sku:"PB-66W-008",image:"images/products/powerbank-66w.jpg",description:"High-speed charging, 66W PD output, digital display, USB-A/C ports. Supports laptops and phones.",colors:["Black","White"],stock:true},
+            {id:9,name:"120W Power Bank 30000mAh",category:"powerbank",price:1499,sku:"PB-120W-009",image:"images/products/powerbank-120w.jpg",description:"High-capacity with 120W output, LED screen, full protocol fast charging for phones, tablets, laptops.",colors:["Black","White"],stock:true},
+            {id:10,name:"Solar Belt Power Bank 10000mAh",category:"powerbank",price:599,sku:"PB-SOLB-010",image:"images/products/solar-belt.jpg",description:"Wearable solar charger with belt strap, solar panel recharging, USB ports. Ideal for hiking.",colors:["Black/Yellow","Green"],stock:true},
+            {id:11,name:"Rugged Solar Power Bank 20000mAh",category:"powerbank",price:799,sku:"PB-SOLR-011",image:"images/products/solar-rugged.jpg",description:"Waterproof, shockproof, wireless charging, built-in cables, LED flashlight.",colors:["Orange","Black","Green"],stock:true},
+            {id:12,name:"Solar Power Bank 50000mAh",category:"powerbank",price:1199,sku:"PB-SOL5-012",image:"images/products/solar-50000.jpg",description:"Large capacity, 4 USB outputs, IP66 waterproof, LED flashlight, fast charging. Perfect for camping.",colors:["Red","Black","Blue"],stock:true},
+            {id:13,name:"All-in-One Charging Kit",category:"powerbank",price:349,sku:"CK-ALLI-013",image:"images/products/charging-kit.jpg",description:"Portable case with USB-C, Lightning, Micro-USB cables, SIM adapters, phone stand. Universal compatibility.",colors:["Black","White"],stock:true},
+            {id:14,name:"3-in-1 Lay-Flat Wireless Charger",category:"powerbank",price:699,sku:"WC-FLAT-014",image:"images/products/wireless-charger-flat.jpg",description:"Charges phone, watch, and earbuds simultaneously. Intelligent current matching, flat desk design.",colors:["Black","White"],stock:true},
+            {id:15,name:"3-in-1 Foldable Wireless Charger",category:"powerbank",price:899,sku:"WC-FOLD-015",image:"images/products/wireless-charger-fold.jpg",description:"Foldable stand for phone, watch, earbuds. MagSafe compatible, travel-friendly.",colors:["White","Black"],stock:true},
+            // 4. POWER STATIONS
+            {id:16,name:"Compact Power Station 300W/200Wh",category:"powerstation",price:3999,sku:"PS-300W-016",image:"images/products/powerstation-300w.jpg",description:"LCD display, multiple USB ports, DC output, AC socket. For laptops and small appliances.",colors:["Gray","Black"],stock:true},
+            {id:17,name:"Multi-Outlet Power Station 500W",category:"powerstation",price:6999,sku:"PS-500W-017",image:"images/products/powerstation-500w.jpg",description:"AC outlets, USB, DC, car port, LCD screen, expandable battery. For camping/emergencies.",colors:["Gray","Black"],stock:true},
+            {id:18,name:"VTOMAN Jump 600 Power Station",category:"powerstation",price:8999,sku:"PS-VTOM-018",image:"images/products/vtoman-powerstation.jpg",description:"Expandable 600W, LiFePO4 battery, AC outlets, USB, solar input. Stackable design.",colors:["Black/Yellow","Gray"],stock:true},
+            // 5. SPEAKERS (JBL)
+            {id:19,name:"JBL Go Essential",category:"speakers",price:599,sku:"SP-JBLE-019",image:"images/products/jbl-go-essential.jpg",description:"Waterproof Bluetooth speaker, 5-hour battery, 3.1W output, compact for outdoor use.",colors:["Black","Red","Blue"],stock:true},
+            {id:20,name:"JBL Boombox 3",category:"speakers",price:7999,sku:"SP-JBLB-020",image:"images/products/jbl-boombox.jpg",description:"40W output, 24-hour battery, IPX7 waterproof, handle, deep bass, party mode.",colors:["Black","Camo"],stock:true},
+            {id:21,name:"JBL Partybox 310",category:"speakers",price:9999,sku:"SP-JBLP-021",image:"images/products/jbl-partybox.jpg",description:"250W output, LED lights, DJ controls, mic input, 12-hour battery. For events/karaoke.",colors:["Black"],stock:true},
+            {id:22,name:"JBL Go 4",category:"speakers",price:799,sku:"SP-JBL4-022",image:"images/products/jbl-go4.jpg",description:"Ultra-portable, 7-hour battery, IP67 waterproof/dustproof, bold sound.",colors:["Black","Red","Blue","Camo"],stock:true},
+            // 6. ADULT TOYS
+            {id:23,name:"Rose Vibrator with Thrusting Dildo",category:"adult",price:899,sku:"AT-ROSE-023",image:"images/products/rose-vibrator-dildo.jpg",description:"Silicone rose clitoral suction vibrator with thrusting dildo, 10 modes, waterproof, USB rechargeable.",colors:["Pink","Red","Purple"],stock:true},
+            {id:24,name:"Finger Sleeve Vibrator",category:"adult",price:299,sku:"AT-FING-024",image:"images/products/finger-vibrator.jpg",description:"Silicone finger vibrator with bullet motor, 10 speeds, waterproof, battery-powered.",colors:["Pink","Purple"],stock:true},
+            {id:25,name:"Purple Rose Clitoral Sucker",category:"adult",price:599,sku:"AT-ROSP-025",image:"images/products/rose-vibrator-purple.jpg",description:"Compact rose-shaped air pulse technology, 10 modes, waterproof, rechargeable, discreet.",colors:["Purple","Pink","Red"],stock:true},
+            // 7. CAR ACCESSORIES
+            {id:26,name:"Multi-Function Jump Starter 2000A",category:"car",price:1899,sku:"CA-JUMP-026",image:"images/products/jump-starter.jpg",description:"Portable jump starter with air compressor, tire inflator, LED light, USB ports. For 8L gas engines.",colors:["Blue","Gray"],stock:true},
+            {id:27,name:"Hoco E62 FM Transmitter",category:"car",price:399,sku:"CA-HOCO-027",image:"images/products/hoco-fm-transmitter.jpg",description:"Bluetooth FM transmitter, QC3.0 charging, LED display, hands-free calling, SD/USB music playback.",colors:["Black"],stock:true},
+            // 8. OFFICE SUPPLIES
+            {id:28,name:"A4 Paper 80gsm (500 sheets)",category:"office",price:89,sku:"OS-A4PA-028",image:"images/products/a4-paper-typek.jpg",description:"Premium white A4 paper for printers/copiers. Jam-free, high whiteness. Brands: Typek, Rotatrim, Double A.",colors:["White"],stock:true},
+            {id:29,name:"CARL RT-200 Rotary Paper Cutter",category:"office",price:599,sku:"OS-CARL-029",image:"images/products/carl-cutter.jpg",description:"18-inch rotary trimmer, grid alignment, replaceable blade. Cuts up to 10 sheets.",colors:["Black","Silver"],stock:true},
+            // 9. OTHER PRODUCTS
+            {id:30,name:"Z6 Mini Android TV Box",category:"other",price:899,sku:"OT-ANDR-030",image:"images/products/android-tv-box.jpg",description:"Android TV box with Google Assistant, 4K streaming, remote, Netflix/YouTube support.",colors:["Black"],stock:true},
+            {id:31,name:"7-Drawer Rolling Tool Cabinet",category:"other",price:3499,sku:"OT-TOOL-031",image:"images/products/tool-cabinet.jpg",description:"Rolling cabinet with lock, blue accents, includes tool set (wrenches, screwdrivers). For garage/workshop.",colors:["Gray/Blue","Red"],stock:true},
+            {id:32,name:"34\" Curved Gaming Monitor",category:"other",price:7999,sku:"OT-MONI-032",image:"images/products/gaming-monitor.jpg",description:"Ultrawide 144Hz, WQHD resolution, HDR support. Perfect for gaming and productivity.",colors:["Black"],stock:true},
+            {id:33,name:"Adjustable Dumbbell Set 20kg",category:"other",price:1299,sku:"OT-DUMB-033",image:"images/products/dumbbell-set.jpg",description:"Cast iron set with bars, plates, and case. Adjustable for home workouts.",colors:["Black"],stock:true},
+            {id:34,name:"Solar Livestock GPS Tracker",category:"other",price:1599,sku:"OT-GPS-034",image:"images/products/gps-tracker.jpg",description:"Solar-powered GPS for cattle, 16500mAh battery, real-time location, app integration.",colors:["Black"],stock:true}
         ];
 
-        // --- 2. STATE MANAGEMENT ---
+        // === STATE MANAGEMENT ===
         let cart = [];
 
-        // --- 3. NAVIGATION LOGIC ---
+        // === NAVIGATION ===
         function navigateTo(pageId) {
-            // Hide all sections
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show requested section
-            const target = document.getElementById(pageId);
-            if(target) {
-                target.classList.add('active');
-                window.scrollTo(0, 0);
-            }
-
-            // Update active nav link (visual only)
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            const navBar = document.getElementById('navbarNav');
+            if(navBar.classList.contains('show')) new bootstrap.Collapse(navBar).hide();
         }
 
-        // --- 4. RENDER FUNCTIONS ---
-        
-        // Render Featured (Home)
-        function renderFeatured() {
-            const container = document.getElementById('featured-products-container');
-            // Take first 3 products
-            const featured = products.slice(0, 3);
-            
-            container.innerHTML = featured.map(product => createProductCard(product)).join('');
-        }
-
-        // Render Shop (All Products)
-        function renderShop(filter = 'all') {
-            const container = document.getElementById('shop-products-container');
-            let filteredProducts = products;
-
-            if (filter !== 'all') {
-                filteredProducts = products.filter(p => p.category === filter);
-            }
-
-            container.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
-        }
-
-        // Helper: Create HTML for Product Card
+        // === RENDER PRODUCTS ===
         function createProductCard(product) {
             return `
-                <div class="col-md-4 col-sm-6">
-                    <div class="product-card shadow-sm">
-                        <div class="product-img-wrapper" onclick="showProductDetails(${product.id})" style="cursor:pointer">
-                            <img src="${product.image}" alt="${product.name}">
+                <div class="col-md-4 col-sm-6" data-category="${product.category}">
+                    <div class="product-card">
+                        <div class="product-img-wrapper" onclick="showProductDetails(${product.id})">
+                            <span class="badge ${product.stock ? 'bg-success' : 'bg-secondary'} badge-stock">${product.stock ? '✓ In Stock' : 'Out of Stock'}</span>
+                            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x400?text=Product+Image'">
                         </div>
                         <div class="card-body">
-                            <small class="text-muted">${product.category}</small>
-                            <h5 class="card-title text-truncate" onclick="showProductDetails(${product.id})" style="cursor:pointer">${product.name}</h5>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="card-price">R ${product.price.toLocaleString()}</span>
-                                <button class="btn btn-sm btn-outline-primary" onclick="addToCart(${product.id})">
-                                    <i class="bi bi-cart-plus"></i>
-                                </button>
+                            <small class="text-muted text-uppercase" style="font-size:0.7rem">${product.category}</small>
+                            <h5 class="card-title text-truncate mt-1" onclick="showProductDetails(${product.id})" style="cursor:pointer">${product.name}</h5>
+                            <p class="text-muted small mb-2">${product.description}</p>
+                            <div class="card-price">R ${product.price.toLocaleString()}</div>
+                            <div class="vat-text">incl. VAT</div>
+                            <div class="color-options">
+                                ${product.colors.slice(0,4).map(c => `<div class="color-dot" style="background:${getColorCode(c)}" title="${c}"></div>`).join('')}
+                                ${product.colors.length>4 ? `<small class="text-muted">+${product.colors.length-4}</small>`:''}
                             </div>
+                            <button class="btn btn-sm btn-outline-primary w-100 mt-3" onclick="addToCart(${product.id})"><i class="bi bi-cart-plus"></i> Add to Cart</button>
                         </div>
                     </div>
-                </div>
-            `;
+                </div>`;
         }
 
-        // --- 5. PRODUCT DETAILS LOGIC ---
+        function getColorCode(color) {
+            const map = {'Black':'#000','White':'#fff','Red':'#dc3545','Blue':'#0d6efd','Green':'#198754','Pink':'#ff69b4','Purple':'#6f42c1','Gray':'#6c757d','Silver':'#c0c0c0','Orange':'#fd7e14','Camo':'#4b5320','Chrome':'#a8a9ad','Yellow':'#ffc107'};
+            return map[color] || '#ccc';
+        }
+
+        function renderFeatured() {
+            const container = document.getElementById('featured-products-container');
+            container.innerHTML = products.slice(0,6).map(p => createProductCard(p)).join('');
+        }
+
+        function renderShop(filter = 'all') {
+            const container = document.getElementById('shop-products-container');
+            const count = document.getElementById('product-count');
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+            count.textContent = filtered.length;
+            container.innerHTML = filtered.map(p => createProductCard(p)).join('');
+        }
+
+        // === PRODUCT DETAILS ===
         function showProductDetails(id) {
-            const product = products.find(p => p.id === id);
-            if (!product) return;
-
-            document.getElementById('detail-img').src = product.image;
-            document.getElementById('detail-title').innerText = product.name;
-            document.getElementById('detail-price').innerText = `R ${product.price.toLocaleString()}`;
-            document.getElementById('detail-desc').innerText = product.description;
-            
-            // Render Specs
-            const specsList = document.getElementById('detail-specs');
-            specsList.innerHTML = product.specs.map(spec => `<li><i class="bi bi-check-circle-fill text-success"></i> ${spec}</li>`).join('');
-
-            // Setup Add to Cart Button
-            const btn = document.getElementById('detail-add-btn');
-            btn.onclick = function() { addToCart(product.id); };
-
+            const p = products.find(x => x.id === id);
+            if(!p) return;
+            document.getElementById('detail-img').src = p.image;
+            document.getElementById('detail-title').innerText = p.name;
+            document.getElementById('detail-price').innerText = `R ${p.price.toLocaleString()}`;
+            document.getElementById('detail-desc').innerText = p.description;
+            document.getElementById('detail-sku').innerText = p.sku;
+            document.getElementById('detail-specs').innerHTML = p.description.split('. ').filter(s=>s.trim()).slice(0,5).map(s=>`<li><i class="bi bi-check-circle-fill text-success me-2"></i>${s}</li>`).join('');
+            document.getElementById('detail-add-btn').onclick = () => addToCart(p.id);
             navigateTo('product-details');
         }
 
-        // --- 6. CART LOGIC ---
+        // === CART ===
         function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            const existingItem = cart.find(item => item.id === id);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
+            const p = products.find(x => x.id === id);
+            const existing = cart.find(x => x.id === id);
+            if(existing) existing.quantity++; else cart.push({...p, quantity:1});
             updateCartUI();
-            
-            // Show simple toast/alert (Bootstrap Toast could be added here)
-            alert(`${product.name} added to cart!`);
+            alert(`${p.name} added to cart!`);
         }
-
-        function removeFromCart(id) {
-            cart = cart.filter(item => item.id !== id);
-            updateCartUI();
-        }
-
+        function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCartUI(); }
         function updateCartUI() {
-            // Update Badge Count
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cartCount').innerText = totalCount;
-
-            // Update Modal Content
+            document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.quantity,0);
             const container = document.getElementById('cart-items-container');
             const totalEl = document.getElementById('cart-total');
-
-            if (cart.length === 0) {
-                container.innerHTML = '<p class="text-center text-muted">Your cart is empty.</p>';
-                totalEl.innerText = 'R 0.00';
-                return;
-            }
-
+            if(cart.length === 0) { container.innerHTML = '<p class="text-center text-muted">Your cart is empty.</p>'; totalEl.innerText = 'R 0.00'; return; }
             let total = 0;
-            container.innerHTML = cart.map(item => {
-                total += item.price * item.quantity;
-                return `
-                    <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
-                        <div class="d-flex align-items-center">
-                            <img src="${item.image}" width="50" class="rounded me-3">
-                            <div>
-                                <h6 class="mb-0">${item.name}</h6>
-                                <small class="text-muted">R ${item.price.toLocaleString()} x ${item.quantity}</small>
-                            </div>
-                        </div>
-                        <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${item.id})">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                `;
-            }).join('');
-
+            container.innerHTML = cart.map(i => { total += i.price * i.quantity; return `<div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-3"><div class="d-flex align-items-center"><img src="${i.image}" width="60" class="rounded me-3 border" onerror="this.src='https://via.placeholder.com/60'"><div><h6 class="mb-0 fw-bold">${i.name}</h6><small class="text-muted">R ${i.price.toLocaleString()} x ${i.quantity}</small></div></div><button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${i.id})"><i class="bi bi-trash"></i></button></div>`; }).join('');
             totalEl.innerText = `R ${total.toLocaleString()}`;
         }
+        function toggleCart() { new bootstrap.Modal(document.getElementById('cartModal')).show(); }
 
-        function toggleCart() {
-            const myModal = new bootstrap.Modal(document.getElementById('cartModal'));
-            myModal.show();
-        }
-
-        // --- 7. FILTER & SEARCH ---
+        // === FILTER & SEARCH ===
         function filterProducts(category) {
             renderShop(category);
-            
-            // Update active state on buttons
-            document.querySelectorAll('.list-group-item').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.innerText.includes(category) || (category === 'all' && btn.innerText === 'All Products')) {
-                    btn.classList.add('active');
-                }
-            });
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            event.target.closest('.category-btn').classList.add('active');
         }
-
         function searchProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const container = document.getElementById('shop-products-container');
-            
-            const filtered = products.filter(p => 
-                p.name.toLowerCase().includes(query) || 
-                p.category.toLowerCase().includes(query)
-            );
-
-            container.innerHTML = filtered.map(product => createProductCard(product)).join('');
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q));
+            renderShop('all');
+            document.getElementById('shop-products-container').innerHTML = filtered.map(p => createProductCard(p)).join('');
+            document.getElementById('product-count').textContent = filtered.length;
         }
 
-        // --- INITIALIZATION ---
+        // === INIT ===
         window.addEventListener('DOMContentLoaded', () => {
             renderFeatured();
             renderShop();
+            document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+            setTimeout(() => { document.getElementById('cookie-banner').style.display = 'block'; }, 1000);
         });
-
     </script>
 </body>
-
 </html>

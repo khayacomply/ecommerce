@@ -422,4 +422,75 @@ footer a:hover { color: white; }
 }
 .password-strength-weak { background: #dc3545; width: 33%; }
 .password-strength-medium { background: #ffc107; width: 66%; }
+
 .password-strength-strong { background: #198754; width: 100%; }
+
+/* === MOBILE LOGIN SCROLL FIX === */
+
+/* Allow scrolling within login container on mobile */
+@media (max-width: 768px) {
+    .login-overlay {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        padding: 10px;
+    }
+    
+    .login-container {
+        max-height: 95vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 10px auto;
+    }
+    
+    .glass-panel {
+        max-height: none;
+        overflow: visible;
+    }
+    
+    /* Prevent body scroll but allow modal scroll */
+    body.modal-open {
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+/* Ensure forms can scroll on small screens */
+#customer-login-form,
+#customer-register-form,
+#admin-login-form {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Custom scrollbar for login forms */
+#customer-login-form::-webkit-scrollbar,
+#customer-register-form::-webkit-scrollbar,
+#admin-login-form::-webkit-scrollbar {
+    width: 4px;
+}
+
+#customer-login-form::-webkit-scrollbar-track,
+#customer-register-form::-webkit-scrollbar-track,
+#admin-login-form::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+#customer-login-form::-webkit-scrollbar-thumb,
+#customer-register-form::-webkit-scrollbar-thumb,
+#admin-login-form::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+
+/* Fix input focus on mobile */
+.glass-input:focus {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent zoom on input focus (iOS) */
+input, select, textarea {
+    font-size: 16px; /* Prevents iOS zoom */
+}

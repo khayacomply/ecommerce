@@ -8,22 +8,53 @@ let currentRole = null;
 
 // === LOGIN FUNCTIONS ===
 
-// Open login modal
+// === LOGIN FUNCTIONS (Mobile Scroll Fixed) ===
+
+// Open login modal - MOBILE SCROLL FIX
 function openLogin() {
     const overlay = document.getElementById('loginOverlay');
     if (overlay) {
         overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        
+        // Mobile scroll fix: Only lock body scroll on desktop
+        if (window.innerWidth > 768) {
+            // Desktop: lock body scroll
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Mobile: save scroll position and lock body with position fixed
+            document.body.dataset.scrollY = window.scrollY;
+            document.body.classList.add('modal-open');
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${window.scrollY}px`;
+            document.body.style.width = '100%';
+        }
     }
 }
 
-// Close login modal
+// Close login modal - MOBILE SCROLL FIX
 function closeLogin() {
     const overlay = document.getElementById('loginOverlay');
     if (overlay) {
         overlay.classList.remove('active');
+    }
+    
+    // Mobile scroll fix: Restore scroll position
+    if (document.body.classList.contains('modal-open')) {
+        const scrollY = document.body.dataset.scrollY;
+        document.body.classList.remove('modal-open');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        if (scrollY) {
+            window.scrollTo(0, parseInt(scrollY) || 0);
+        }
+    } else {
+        // Desktop: restore overflow
         document.body.style.overflow = '';
     }
+    
+    // Reset all forms
     const loginForm = document.getElementById('customer-login-form');
     const adminForm = document.getElementById('admin-login-form');
     const registerForm = document.getElementById('customer-register-form');
@@ -32,7 +63,6 @@ function closeLogin() {
     if (registerForm) registerForm.reset();
     switchLoginTab('customer');
 }
-
 // Switch between Customer/Admin login tabs
 function switchLoginTab(type) {
     const tabCustomer = document.getElementById('tab-customer');

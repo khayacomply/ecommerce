@@ -3,244 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MDL Solutions - Verified South African Electronics Retailer. POPIA Compliant.">
-    <title>MDL Solutions | Premium Electronics Store</title>
+    <meta name="description" content="MDL SOLUTIONS - Verified South African Electronics & General Products Supplier. POPIA & CPA Compliant.">
+    <title>MDL SOLUTIONS | Electronics & General Products</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    
-    <style>
-        /* --- CUSTOM CSS --- */
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #2c3e50;
-            --accent-color: #ff6b6b;
-            --bg-light: #f8f9fa;
-            --trust-green: #198754;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-light);
-            padding-top: 76px;
-        }
-
-        /* Top Trust Bar */
-        .trust-bar {
-            background-color: var(--secondary-color);
-            color: white;
-            font-size: 0.85rem;
-            padding: 8px 0;
-        }
-
-        /* Navbar */
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            background: white;
-        }
-        .nav-link {
-            font-weight: 500;
-            color: var(--secondary-color);
-        }
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(rgba(11, 38, 69, 0.85), rgba(11, 38, 69, 0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            margin-bottom: 40px;
-        }
-
-        /* Trust Badges Section */
-        .trust-section {
-            background: white;
-            padding: 40px 0;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 40px;
-        }
-        .trust-item i {
-            font-size: 2rem;
-            color: var(--trust-green);
-            margin-bottom: 10px;
-        }
-
-        /* Product Cards */
-        .product-card {
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 100%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        .product-img-wrapper {
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            padding: 20px;
-            position: relative;
-        }
-        .product-img-wrapper img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-        .badge-stock {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 0.75rem;
-        }
-        .card-price {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        .vat-text {
-            font-size: 0.75rem;
-            color: #6c757d;
-        }
-        .color-options {
-            display: flex;
-            gap: 4px;
-            margin-top: 8px;
-            flex-wrap: wrap;
-        }
-        .color-dot {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-        }
-
-        /* Category Sidebar */
-        .category-sidebar {
-            position: sticky;
-            top: 100px;
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .category-btn {
-            width: 100%;
-            text-align: left;
-            margin-bottom: 8px;
-            border: none;
-            background: #f8f9fa;
-            padding: 12px 15px;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        .category-btn:hover, .category-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Cart Badge */
-        .cart-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            transform: translate(25%, -25%);
-        }
-
-        /* Section Visibility */
-        .page-section {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-        .page-section.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Policy Content */
-        .policy-content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 50px 0 20px;
-            margin-top: 60px;
-        }
-        footer a { color: #ccc; text-decoration: none; }
-        footer a:hover { color: white; }
-
-        /* Cookie Banner */
-        #cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #1a1a1a;
-            color: white;
-            padding: 15px;
-            z-index: 9999;
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .category-sidebar { position: static; margin-bottom: 20px; }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- TOP TRUST BAR -->
     <div class="trust-bar">
         <div class="container d-flex justify-content-between align-items-center flex-wrap">
-            <div><i class="bi bi-telephone-fill me-2"></i> 021 123 4567 <span class="mx-2 d-none d-sm-inline">|</span> <i class="bi bi-envelope-fill me-2 d-none d-sm-inline"></i> support@mdlsolutions.co.za</div>
-            <div><i class="bi bi-shield-check me-2 text-success"></i> SSL Secured & POPIA Compliant</div>
+            <div>
+                <i class="bi bi-telephone-fill me-2"></i> 072 141 2859 
+                <span class="mx-2 d-none d-sm-inline">|</span>
+                <i class="bi bi-whatsapp me-2 d-none d-sm-inline"></i>
+                <a href="https://wa.me/27632119290" class="text-white">+27 63 211 9290</a>
+                <span class="mx-2 d-none d-sm-inline">|</span>
+                <i class="bi bi-envelope-fill me-2 d-none d-sm-inline"></i>
+                <a href="mailto:mdlsolutions@yahoo.com" class="text-white">mdlsolutions@yahoo.com</a>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="compliance-badge badge-tax"><i class="bi bi-shield-check"></i> SARS Tax Compliant</span>
+                <span class="compliance-badge badge-bbbee"><i class="bi bi-patch-check"></i> B-BBEE Verified</span>
+                <span class="compliance-badge badge-cipc"><i class="bi bi-building"></i> CIPC Registered</span>
+            </div>
         </div>
     </div>
 
     <!-- NAVIGATION -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="#" onclick="navigateTo('home')">
-                <i class="bi bi-cpu-fill"></i> MDL Solutions
+            <a class="navbar-brand" href="#" onclick="navigateTo('home')">
+                <img src="images/logo.png" alt="MDL SOLUTIONS Logo" class="logo-img" onerror="this.style.display='none'">
+                <i class="bi bi-box-seam-fill text-primary" style="display:none"></i> MDL SOLUTIONS
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('home')">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('shop')">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('about')">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('policies')">Policies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('contact')">Contact</a></li>
-                    <li class="nav-item ms-3">
-                        <button class="btn btn-outline-primary position-relative" onclick="toggleCart()">
-                            <i class="bi bi-cart3"></i>
-                            <span class="badge bg-danger cart-badge" id="cartCount">0</span>
-                        </button>
-                    </li>
+                <ul class="navbar-nav ms-auto align-items-center" id="main-nav">
+                    <!-- Dynamic content loaded by JS -->
                 </ul>
             </div>
         </div>
@@ -250,14 +57,12 @@
     <section id="home" class="page-section active">
         <div class="hero-section text-center">
             <div class="container">
-                <span class="badge bg-warning text-dark mb-3 px-3 py-2">🇿🇦 Registered SA Business</span>
-                <h1 class="display-4 fw-bold">Premium Electronics & Gadgets</h1>
-                <p class="lead mb-4">VAT Inclusive Pricing | Nationwide Delivery | 12-Month Warranty</p>
-                <button class="btn btn-primary btn-lg px-5" onclick="navigateTo('shop')">Shop 34+ Products</button>
+                <span class="hero-badge">🇿🇦 Registered South African Supplier | MAAA1297880</span>
+                <h1 class="display-4 fw-bold">Electronics & General Products</h1>
+                <p class="lead mb-4">VAT Inclusive Pricing | Nationwide Delivery | B-BBEE Compliant</p>
+                <button class="btn btn-primary btn-lg px-5" onclick="navigateTo('shop')">Browse 36+ Products</button>
             </div>
         </div>
-
-        <!-- Trust Indicators -->
         <div class="trust-section">
             <div class="container">
                 <div class="row text-center g-4">
@@ -279,13 +84,11 @@
                     <div class="col-md-3 trust-item">
                         <i class="bi bi-headset fs-2"></i>
                         <h6>Local Support</h6>
-                        <small class="text-muted">Emalahleni Based Team</small>
+                        <small class="text-muted">eMalahleni Based Team</small>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Featured Products -->
         <div class="container mb-5">
             <h2 class="mb-4 border-start border-4 border-primary ps-3">Trending Now</h2>
             <div class="row g-4" id="featured-products-container"></div>
@@ -296,31 +99,19 @@
     <section id="shop" class="page-section">
         <div class="container py-5">
             <div class="row">
-                <!-- Category Sidebar -->
                 <div class="col-lg-3 mb-4">
                     <div class="category-sidebar">
                         <h6 class="fw-bold mb-3">CATEGORIES</h6>
-                        <button class="category-btn active" onclick="filterProducts('all')"><i class="bi bi-grid-3x3-gap me-2"></i>All Products</button>
-                        <button class="category-btn" onclick="filterProducts('mobility')"><i class="bi bi-bicycle me-2"></i>Personal Mobility</button>
-                        <button class="category-btn" onclick="filterProducts('sewing')"><i class="bi bi-scissors me-2"></i>Sewing Machines</button>
-                        <button class="category-btn" onclick="filterProducts('powerbank')"><i class="bi bi-battery-charging me-2"></i>Power Banks</button>
-                        <button class="category-btn" onclick="filterProducts('powerstation')"><i class="bi bi-plug me-2"></i>Power Stations</button>
-                        <button class="category-btn" onclick="filterProducts('speakers')"><i class="bi bi-speaker me-2"></i>Speakers</button>
-                        <button class="category-btn" onclick="filterProducts('adult')"><i class="bi bi-heart me-2"></i>Adult Toys</button>
-                        <button class="category-btn" onclick="filterProducts('car')"><i class="bi bi-car-front me-2"></i>Car Accessories</button>
-                        <button class="category-btn" onclick="filterProducts('office')"><i class="bi bi-folder me-2"></i>Office Supplies</button>
-                        <button class="category-btn" onclick="filterProducts('other')"><i class="bi bi-box me-2"></i>Other Products</button>
+                        <div id="category-filters"></div>
                     </div>
                 </div>
-
-                <!-- Product Grid -->
                 <div class="col-lg-9">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h2>Our Products <span class="text-muted small">(<span id="product-count">0</span> items)</span></h2>
-                        <input type="text" class="form-control w-50" placeholder="🔍 Search products..." id="searchInput" onkeyup="searchProducts()">
+                        <input type="text" class="form-control w-50" placeholder="🔍 Search products..." id="searchInput">
                     </div>
                     <div class="alert alert-info border-0 shadow-sm">
-                        <i class="bi bi-info-circle-fill"></i> All prices include VAT. Delivery calculated at checkout.
+                        <i class="bi bi-info-circle-fill"></i> All prices include VAT (4010315333). Delivery calculated at checkout.
                     </div>
                     <div class="row g-4" id="shop-products-container"></div>
                 </div>
@@ -347,18 +138,18 @@
                             <h5 class="text-muted text-uppercase small fw-bold">Electronics</h5>
                             <h1 id="detail-title" class="fw-bold mb-3"></h1>
                             <h2 id="detail-price" class="text-primary mb-3"></h2>
-                            <p class="text-muted mb-4">Includes VAT. Shipping calculated at checkout.</p>
+                            <p class="text-muted mb-4">Includes VAT (4010315333). Shipping calculated at checkout.</p>
                             <p id="detail-desc" class="lead"></p>
                             <hr class="my-4">
                             <h6 class="fw-bold">Specifications</h6>
                             <ul id="detail-specs" class="list-unstyled text-muted small mb-4"></ul>
                             <div class="d-grid gap-2 d-md-block">
                                 <button id="detail-add-btn" class="btn btn-primary btn-lg px-5">Add to Cart</button>
-                                <button class="btn btn-outline-dark btn-lg px-4" onclick="alert('Redirecting to Secure Payment Gateway...')"><i class="bi bi-lock"></i> Buy Now</button>
+                                <button class="btn btn-outline-dark btn-lg px-4" onclick="initiateCheckout()"><i class="bi bi-lock"></i> Buy Now</button>
                             </div>
                             <div class="mt-4 p-3 bg-light rounded border">
                                 <small class="text-muted d-block"><i class="bi bi-shield-check text-success"></i> <strong>Buyer Protection:</strong></small>
-                                <small class="text-muted">12-Month Local Warranty | 7-Day Return Policy (CPA)</small>
+                                <small class="text-muted">12-Month Local Warranty | 7-Day Return Policy (CPA Compliant)</small>
                             </div>
                         </div>
                     </div>
@@ -372,23 +163,24 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded shadow" alt="About Us">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded shadow" alt="About MDL SOLUTIONS">
                 </div>
                 <div class="col-md-6">
-                    <h2 class="fw-bold">About MDL Solutions</h2>
-                    <p class="lead">Your trusted partner for quality electronics in South Africa.</p>
-                    <p>Founded in 2023, MDL Solutions was built on the mission to provide authentic, high-quality gadgets at affordable prices. We are a registered South African entity committed to customer satisfaction and compliance with local consumer laws.</p>
-                    <div class="card bg-light border-0 mt-4">
-                        <div class="card-body">
-                            <h6 class="fw-bold"><i class="bi bi-patch-check-fill text-primary"></i> Business Credentials</h6>
-                            <ul class="list-unstyled mb-0 small text-muted">
-                                <li><strong>Registered Name:</strong> MDL Solutions (Pty) Ltd</li>
-                                <li><strong>Registration No:</strong> 2023/123456/07</li>
-                                <li><strong>VAT No:</strong> 4567891234</li>
-                                <li><strong>Location:</strong> Emalahleni, Mpumalanga</li>
-                            </ul>
-                        </div>
+                    <h2 class="fw-bold">About MDL SOLUTIONS</h2>
+                    <p class="lead">Your trusted South African supplier for electronics and general products.</p>
+                    <p>MDL SOLUTIONS (PTY) LTD is a registered private company committed to providing quality products at competitive prices. We are fully compliant with South African business regulations and proud to be a B-BBEE verified supplier.</p>
+                    <div class="credentials-box">
+                        <h6 class="fw-bold mb-3"><i class="bi bi-patch-check-fill text-primary"></i> Business Credentials</h6>
+                        <div class="cred-item"><span class="cred-label">Legal Name:</span><span class="cred-value">MDL SOLUTIONS (PTY) LTD</span></div>
+                        <div class="cred-item"><span class="cred-label">Trading Name:</span><span class="cred-value">MDL SOLUTIONS</span></div>
+                        <div class="cred-item"><span class="cred-label">CIPC Registration:</span><span class="cred-value">2021/161417/07</span></div>
+                        <div class="cred-item"><span class="cred-label">Supplier Number:</span><span class="cred-value">MAAA1297880</span></div>
+                        <div class="cred-item"><span class="cred-label">VAT Number:</span><span class="cred-value">4010315333</span></div>
+                        <div class="cred-item"><span class="cred-label">Income Tax:</span><span class="cred-value">9628422199</span></div>
+                        <div class="cred-item"><span class="cred-label">B-BBEE Status:</span><span class="cred-value text-success">✓ Verified (Expires: 25 Apr 2025)</span></div>
+                        <div class="cred-item"><span class="cred-label">Tax Compliance:</span><span class="cred-value text-success">✓ Validated 27 Nov 2024</span></div>
                     </div>
+                    <p class="small text-muted mb-0"><i class="bi bi-info-circle"></i> All credentials verified via CIPC and SARS. B-BBEE certificate available upon request.</p>
                 </div>
             </div>
         </div>
@@ -399,18 +191,19 @@
         <div class="container py-5">
             <div class="policy-content">
                 <h2 class="fw-bold mb-4 border-bottom pb-3">Store Policies & Compliance</h2>
-                <p class="text-muted">Last updated: <span id="current-date"></span></p>
+                <p class="text-muted">Last updated: <span id="current-date"></span> | MDL SOLUTIONS (PTY) LTD | Reg: 2021/161417/07</p>
                 <div class="accordion" id="policyAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header"><button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">📦 Shipping & Delivery</button></h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#policyAccordion">
                             <div class="accordion-body">
-                                <p>We partner with <strong>Take alot</strong> and <strong>Pudo Lockers</strong> for nationwide delivery.</p>
+                                <p>We partner with <strong>The Courier Guy</strong> and <strong>Pudo Lockers</strong> for nationwide delivery from eMalahleni, Mpumalanga.</p>
                                 <ul>
-                                    <li><strong>Processing:</strong> Orders before 12:00 PM ship same day</li>
+                                    <li><strong>Processing:</strong> Orders before 12:00 PM SAST ship same business day</li>
                                     <li><strong>Delivery:</strong> 2-4 days (Major Centers), 5-7 days (Regional)</li>
-                                    <li><strong>Cost:</strong> R99 flat rate under R1000 | Free over R1000</li>
+                                    <li><strong>Cost:</strong> R99 flat rate under R1000 | Free shipping over R1000</li>
                                     <li><strong>Tracking:</strong> Email notification with tracking link upon dispatch</li>
+                                    <li><strong>Regions:</strong> We deliver to all 9 provinces of South Africa</li>
                                 </ul>
                             </div>
                         </div>
@@ -419,12 +212,13 @@
                         <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">🔄 Returns & Refunds (CPA)</button></h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
                             <div class="accordion-body">
-                                <p>In accordance with the <strong>Consumer Protection Act</strong>:</p>
+                                <p>In accordance with the <strong>Consumer Protection Act (CPA) No. 68 of 2008</strong>:</p>
                                 <ul>
                                     <li><strong>Change of Mind:</strong> Return within 7 days if unused & in original packaging</li>
-                                    <li><strong>Defective Goods:</strong> 12-month manufacturer warranty (we handle claims)</li>
+                                    <li><strong>Defective Goods:</strong> 12-month manufacturer warranty (we handle all claims locally)</li>
                                     <li><strong>Refunds:</strong> Processed within 5-10 business days to original payment method</li>
-                                    <li><strong>Restocking:</strong> 10% fee may apply to opened electronics</li>
+                                    <li><strong>Restocking:</strong> 10% fee may apply to opened electronics for change-of-mind returns</li>
+                                    <li><strong>Process:</strong> Contact support@mdlsolutions.co.za with order number and photos</li>
                                 </ul>
                             </div>
                         </div>
@@ -433,12 +227,13 @@
                         <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">🔒 Privacy Policy (POPIA)</button></h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
                             <div class="accordion-body">
-                                <p>MDL Solutions complies with the <strong>Protection of Personal Information Act</strong>.</p>
+                                <p>MDL SOLUTIONS complies with the <strong>Protection of Personal Information Act (POPIA) No. 4 of 2013</strong>.</p>
                                 <ul>
                                     <li>We do not sell your personal data to third parties</li>
-                                    <li>Data collected only for order fulfillment and legal compliance</li>
-                                    <li>Payments processed via PCI-DSS compliant gateways (PayFast/Yoco)</li>
-                                    <li>Contact our Information Officer: <strong>popi@mdlsolutions.co.za</strong></li>
+                                    <li>Data collected only for order fulfillment, delivery, and legal compliance</li>
+                                    <li>Payments processed via PCI-DSS compliant gateways (PayFast/Yoco) - card data never stored on our servers</li>
+                                    <li>You may request access, correction, or deletion of your data by contacting our Information Officer</li>
+                                    <li><strong>Information Officer Contact:</strong> popi@mdlsolutions.co.za | 072 141 2859</li>
                                 </ul>
                             </div>
                         </div>
@@ -447,12 +242,14 @@
                         <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">📄 Terms & Conditions</button></h2>
                         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
                             <div class="accordion-body">
-                                <p>By purchasing from MDL Solutions, you agree to:</p>
+                                <p>By purchasing from MDL SOLUTIONS, you agree to:</p>
                                 <ul>
-                                    <li>Prices subject to change due to exchange rate fluctuations</li>
-                                    <li>We reserve right to cancel orders due to pricing errors or stock issues</li>
-                                    <li>Images for illustration; actual packaging may vary</li>
-                                    <li>Legal jurisdiction under laws of Republic of South Africa</li>
+                                    <li>Prices are in South African Rand (ZAR) and include VAT (4010315333)</li>
+                                    <li>Prices subject to change due to exchange rate fluctuations or supplier adjustments</li>
+                                    <li>We reserve right to cancel orders due to pricing errors, stock unavailability, or fraud prevention</li>
+                                    <li>Product images are for illustration; actual packaging may vary slightly</li>
+                                    <li>All disputes governed by laws of Republic of South Africa, jurisdiction: Mpumalanga</li>
+                                    <li>MDL SOLUTIONS (PTY) LTD | Reg: 2021/161417/07 | VAT: 4010315333</li>
                                 </ul>
                             </div>
                         </div>
@@ -471,27 +268,35 @@
                     <p class="text-muted mb-4">Verified Business Details</p>
                     <div class="card border-0 shadow-sm mb-4">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">MDL Solutions(Pty) Ltd</h5>
+                            <h5 class="card-title fw-bold">MDL SOLUTIONS (PTY) LTD</h5>
+                            <p class="card-text text-muted mb-3">
+                                <i class="bi bi-hash me-2"></i> CIPC Reg: 2021/161417/07<br>
+                                <i class="bi bi-receipt me-2"></i> VAT No: 4010315333<br>
+                                <i class="bi bi-file-earmark me-2"></i> Supplier No: MAAA1297880<br>
+                                <i class="bi bi-building me-2"></i> Income Tax: 9628422199
+                            </p>
+                            <hr>
                             <p class="card-text text-muted">
-                                <i class="bi bi-hash me-2"></i> Reg No: 2023/123456/07<br>
-                                <i class="bi bi-receipt me-2"></i> VAT No: 4567891234<br>
-                                <i class="bi bi-geo-alt me-2"></i> 123 Nelson Mandela Blvd, Emalahleni, Mpumalanga, 1043<br>
-                                <i class="bi bi-envelope me-2"></i> support@mdlsolutions.co.za<br>
-                                <i class="bi bi-whatsapp me-2"></i> +27 82 123 4567
+                                <i class="bi bi-geo-alt me-2"></i> No. 18 Octave Street, Tasbet Park Ext 2<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;eMalahleni, Mpumalanga, 1040<br>
+                                <i class="bi bi-person me-2"></i> Contact: Sifiso Thela<br>
+                                <i class="bi bi-envelope me-2"></i> mdlsolutions@yahoo.com<br>
+                                <i class="bi bi-telephone me-2"></i> 072 141 2859<br>
+                                <i class="bi bi-whatsapp me-2"></i> <a href="https://wa.me/27632119290" class="text-decoration-none">+27 63 211 9290</a>
                             </p>
                         </div>
                     </div>
-                    <div class="alert alert-warning">
+                    <div class="alert alert-warning border-0 shadow-sm">
                         <i class="bi bi-exclamation-triangle-fill"></i> <strong>Note:</strong> We operate primarily online. For collections, please contact support 24h in advance.
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form class="card p-4 shadow-sm border-0">
+                    <form class="card p-4 shadow-sm border-0" id="contact-form">
                         <h5 class="mb-3">Send us a Message</h5>
-                        <div class="mb-3"><label class="form-label">Full Name</label><input type="text" class="form-control" required></div>
-                        <div class="mb-3"><label class="form-label">Email Address</label><input type="email" class="form-control" required></div>
-                        <div class="mb-3"><label class="form-label">Order Number (Optional)</label><input type="text" class="form-control"></div>
-                        <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" rows="4"></textarea></div>
+                        <div class="mb-3"><label class="form-label">Full Name</label><input type="text" class="form-control" name="name" required></div>
+                        <div class="mb-3"><label class="form-label">Email Address</label><input type="email" class="form-control" name="email" required></div>
+                        <div class="mb-3"><label class="form-label">Order Number (Optional)</label><input type="text" class="form-control" name="order"></div>
+                        <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" name="message" rows="4"></textarea></div>
                         <button type="submit" class="btn btn-primary w-100">Send Message</button>
                     </form>
                 </div>
@@ -512,20 +317,89 @@
                 </div>
                 <div class="modal-footer d-block bg-light">
                     <div class="d-flex justify-content-between mb-3">
-                        <span class="text-muted">Subtotal (incl. VAT):</span>
+                        <span class="text-muted">Subtotal (incl. VAT 4010315333):</span>
                         <span class="fw-bold fs-5" id="cart-total">R 0.00</span>
                     </div>
-                    <button class="btn btn-primary btn-lg w-100" onclick="alert('Redirecting to Secure Payment Gateway (PayFast/Yoco)...')"><i class="bi bi-lock-fill"></i> Proceed to Checkout</button>
-                    <small class="text-center text-muted d-block mt-2"><i class="bi bi-shield-check"></i> Payments are secure and encrypted.</small>
+                    <button class="btn btn-primary btn-lg w-100" onclick="initiateCheckout()"><i class="bi bi-lock-fill"></i> Proceed to Checkout</button>
+                    <small class="text-center text-muted d-block mt-2"><i class="bi bi-shield-check"></i> Payments are secure and encrypted. MDL SOLUTIONS (PTY) LTD | Reg: 2021/161417/07</small>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- GLASSMORPHISM LOGIN OVERLAY -->
+<div class="login-overlay" id="loginOverlay">
+    <div class="login-container">
+        <div class="glass-panel p-4 p-md-5">
+            <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-sm text-white-50" onclick="closeLogin()"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="text-center mb-4">
+                <img src="images/logo.png" alt="MDL SOLUTIONS" style="height:50px" onerror="this.style.display='none'">
+                <h4 class="text-white fw-bold mt-2">MDL SOLUTIONS</h4>
+                <p class="text-white-50 small mb-0">Secure Access Portal</p>
+            </div>
+            
+            <!-- Login Tabs -->
+            <div class="login-tabs">
+                <div class="login-tab active" id="tab-customer" onclick="switchLoginTab('customer')"><i class="bi bi-person me-1"></i> Customer</div>
+                <div class="login-tab" id="tab-admin" onclick="switchLoginTab('admin')"><i class="bi bi-shield-lock me-1"></i> Admin</div>
+            </div>
+            
+            <!-- Customer Login Form -->
+            <form id="customer-login-form">
+                <div class="mb-3"><label class="form-label text-white-75 small">Email Address</label><input type="email" class="form-control glass-input" id="cust-email" placeholder="your@email.com" required></div>
+                <div class="mb-3"><label class="form-label text-white-75 small">Password</label><input type="password" class="form-control glass-input" id="cust-password" placeholder="••••••••" required></div>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="cust-remember"><label class="form-check-label text-white-50 small" for="cust-remember">Remember me</label></div>
+                    <a href="#" class="text-white-50 small text-decoration-none">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn glass-btn glass-btn-primary w-100 mb-3"><i class="bi bi-box-arrow-in-right me-2"></i>Sign In as Customer</button>
+                <p class="text-center text-white-50 small mb-0">
+                    New here? <a href="#" class="text-white text-decoration-none" onclick="switchToRegistration()">Create an account</a>
+                </p>
+            </form>
+            
+            <!-- Customer Registration Form (Hidden by default) -->
+            <form id="customer-register-form" style="display:none">
+                <div class="mb-3"><label class="form-label text-white-75 small">Full Name</label><input type="text" class="form-control glass-input" id="reg-name" placeholder="John Doe" required></div>
+                <div class="mb-3"><label class="form-label text-white-75 small">Email Address</label><input type="email" class="form-control glass-input" id="reg-email" placeholder="your@email.com" required></div>
+                <div class="mb-3"><label class="form-label text-white-75 small">Phone Number</label><input type="tel" class="form-control glass-input" id="reg-phone" placeholder="072 123 4567" required></div>
+                <div class="mb-3"><label class="form-label text-white-75 small">Password</label><input type="password" class="form-control glass-input" id="reg-password" placeholder="••••••••" minlength="6" required></div>
+                <div class="mb-3"><label class="form-label text-white-75 small">Confirm Password</label><input type="password" class="form-control glass-input" id="reg-confirm-password" placeholder="••••••••" minlength="6" required></div>
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="reg-terms" required>
+                    <label class="form-check-label text-white-50 small" for="reg-terms">
+                        I agree to the <a href="#" class="text-white" onclick="navigateTo('policies'); closeLogin();">Terms & Conditions</a> and 
+                        <a href="#" class="text-white" onclick="navigateTo('policies'); closeLogin();">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn glass-btn glass-btn-primary w-100 mb-3"><i class="bi bi-person-plus me-2"></i>Create Account</button>
+                <p class="text-center text-white-50 small mb-0">
+                    Already have an account? <a href="#" class="text-white text-decoration-none" onclick="switchToLogin()">Sign In</a>
+                </p>
+            </form>
+            
+            <!-- Admin Login Form (Hidden by default) -->
+            <form id="admin-login-form" style="display:none">
+                <div class="alert alert-warning bg-warning bg-opacity-25 border-warning border-opacity-25 small mb-3"><i class="bi bi-exclamation-triangle me-1"></i> <strong>Admin Access:</strong> Authorized personnel only</div>
+                <div class="mb-3"><label class="form-label text-white-75 small">Admin Email</label><input type="email" class="form-control glass-input" id="admin-email" placeholder="admin@mdlsolutions.co.za" required></div>
+                <div class="mb-3"><label class="form-label text-white-75 small">Password</label><input type="password" class="form-control glass-input" id="admin-password" placeholder="••••••••" required></div>
+                <div class="mb-3"><label class="form-label text-white-75 small">2FA Code (if enabled)</label><input type="text" class="form-control glass-input" id="admin-2fa" placeholder="Enter 6-digit code"></div>
+                <button type="submit" class="btn glass-btn glass-btn-primary w-100 mb-3"><i class="bi bi-shield-lock me-2"></i>Sign In as Admin</button>
+                <p class="text-center text-white-50 small mb-0"><i class="bi bi-info-circle me-1"></i> Contact IT Support: 072 141 2859</p>
+            </form>
+            
+            <div class="mt-4 pt-3 border-top border-white border-opacity-10">
+                <p class="text-white-50 small text-center mb-0"><i class="bi bi-shield-check me-1"></i> 256-bit SSL Encryption | POPIA Compliant | MDL SOLUTIONS (PTY) LTD</p>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- COOKIE BANNER -->
     <div id="cookie-banner">
         <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
-            <div><small><strong>We value your privacy:</strong> This site uses cookies to comply with POPIA. <a href="#" class="text-white text-decoration-underline" onclick="navigateTo('policies')">Read Policy</a>.</small></div>
+            <div><small><strong>We value your privacy:</strong> This site uses cookies to comply with POPIA. <a href="#" class="text-white text-decoration-underline" onclick="navigateTo('policies')">Read Policy</a>. MDL SOLUTIONS (PTY) LTD | Reg: 2021/161417/07</small></div>
             <div>
                 <button class="btn btn-sm btn-outline-light me-2" onclick="document.getElementById('cookie-banner').style.display='none'">Decline</button>
                 <button class="btn btn-sm btn-primary" onclick="document.getElementById('cookie-banner').style.display='none'">Accept</button>
@@ -538,12 +412,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5>MDL Solutions (Pty) Ltd</h5>
-                    <p class="small text-white-50">Reg No: 2023/123456/07<br>VAT No: 4567891234<br>123 Nelson Mandela Blvd, Emalahleni, Mpumalanga, 1043</p>
+                    <h5>MDL SOLUTIONS (PTY) LTD</h5>
+                    <p class="small footer-legal">
+                        <strong>Legal Name:</strong> MDL SOLUTIONS (PTY) LTD<br>
+                        <strong>Trading Name:</strong> MDL SOLUTIONS<br>
+                        <strong>CIPC Registration:</strong> 2021/161417/07<br>
+                        <strong>Supplier Number:</strong> MAAA1297880<br>
+                        <strong>VAT Number:</strong> 4010315333<br>
+                        <strong>Income Tax:</strong> 9628422199<br>
+                        <strong>Address:</strong> No. 18 Octave Street, Tasbet Park Ext 2, eMalahleni, Mpumalanga, 1040
+                    </p>
                     <div class="mt-3">
-                        <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://wa.me/27632119290" class="me-3"><i class="bi bi-whatsapp"></i></a>
+                        <a href="mailto:mdlsolutions@yahoo.com"><i class="bi bi-envelope"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -551,14 +432,14 @@
                     <ul class="list-unstyled small">
                         <li><a href="#" onclick="navigateTo('shop')">Shop All Products</a></li>
                         <li><a href="#" onclick="navigateTo('policies')">Shipping Policy</a></li>
-                        <li><a href="#" onclick="navigateTo('policies')">Returns & Refunds</a></li>
+                        <li><a href="#" onclick="navigateTo('policies')">Returns & Refunds (CPA)</a></li>
                         <li><a href="#" onclick="navigateTo('policies')">Privacy Policy (POPIA)</a></li>
                         <li><a href="#" onclick="navigateTo('policies')">Terms & Conditions</a></li>
-                        <li><a href="#" onclick="navigateTo('contact')">Contact Us</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')">Contact Sifiso Thela</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5>Secure Payments</h5>
+                    <h5>Compliance & Payments</h5>
                     <div class="d-flex gap-2 flex-wrap mb-3">
                         <span class="badge bg-light text-dark p-2">PayFast</span>
                         <span class="badge bg-light text-dark p-2">Yoco</span>
@@ -566,177 +447,27 @@
                         <span class="badge bg-light text-dark p-2">Mastercard</span>
                         <span class="badge bg-light text-dark p-2">Visa</span>
                     </div>
-                    <p class="small text-white-50"><i class="bi bi-lock-fill text-success"></i> 256-bit SSL Encryption | PCI-DSS Compliant</p>
+                    <div class="small footer-legal">
+                        <i class="bi bi-shield-check text-success"></i> SSL Secured | PCI-DSS Compliant<br>
+                        <i class="bi bi-patch-check text-primary"></i> B-BBEE Verified (Expires: 25 Apr 2025)<br>
+                        <i class="bi bi-shield-fill-check text-success"></i> SARS Tax Compliant (Validated: 27 Nov 2024)
+                    </div>
                 </div>
             </div>
             <div class="text-center mt-4 pt-4 border-top border-secondary">
-                <p class="small mb-0 text-white-50">&copy; 2026 TechZone SA. All Rights Reserved. Prices include VAT.</p>
+                <p class="small mb-0 footer-legal">&copy; 2026 MDL SOLUTIONS (PTY) LTD. All Rights Reserved.<br>Prices include VAT (4010315333). Registered in South Africa under CIPC No. 2021/161417/07.</p>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- MAIN JAVASCRIPT -->
-    <script>
-        // === COMPLETE PRODUCT DATABASE (34 Products) ===
-        const products = [
-            // 1. PERSONAL MOBILITY
-            {id:1,name:"Graffiti Hoverboard 6.5\"",category:"mobility",price:2499,sku:"HB-GRAF-001",image:"images/products/hoverboard-graffiti.jpg",description:"Stylish hoverboard with LED lights, Bluetooth speakers, self-balancing tech, 300W motor, 7.5 mph speed, 6-8 mile range. UL2272 certified.",colors:["Graffiti","Black","White","Blue","Pink","Camo","Chrome","Red"],stock:true},
-            {id:2,name:"Handlebar Hoverboard 8\"",category:"mobility",price:3299,sku:"HB-HAND-002",image:"images/products/hoverboard-handlebar.jpg",description:"Self-balancing hoverboard with adjustable handlebar, 8\" wheels for rough terrain, LED lights, Bluetooth, 400W motor, 9 mph speed, 7-10 mile range. 265 lbs capacity.",colors:["Black","White","Red","Blue","Green"],stock:true},
-            {id:3,name:"Gotrax GXL V2 Electric Scooter",category:"mobility",price:5999,sku:"ES-GOT-003",image:"images/products/gotrax-scooter.jpg",description:"Compact commuter scooter, 250W motor, 15.5 mph top speed, 12-mile range, 5.2Ah battery, foldable design, LED display, pneumatic tires. 220 lbs capacity.",colors:["Black/Blue","Black/Red","Gray","Green","Pink"],stock:true},
-            {id:4,name:"Jackson Quad Roller Skates",category:"mobility",price:1899,sku:"RS-JACK-004",image:"images/products/jackson-skates.jpg",description:"Classic quad skates with leather boots, aluminum chassis, 58mm PU wheels, ABEC-5 bearings. High-ankle support for indoor/outdoor use. Sizes 5-12.",colors:["Black","White","Pink","Blue"],stock:true},
-            // 2. SEWING MACHINES
-            {id:5,name:"JOCKY JK200-01 Industrial Sewing Machine",category:"sewing",price:8999,sku:"SM-JOCK-005",image:"images/products/jocky-sewing.jpg",description:"Industrial straight-stitch machine, 5500 SPM, digital display, auto thread cutter, LED light. For heavy fabrics like denim/leather. Low noise, energy efficient.",colors:["White/Blue","Gray"],stock:true},
-            {id:6,name:"Brother PR655 Embroidery Machine",category:"sewing",price:15999,sku:"EM-BRO-006",image:"images/products/brother-embroidery.jpg",description:"6-needle embroidery machine, 4x4\" hoop, touchscreen, USB connectivity, 1000 SPM. Perfect for caps, shirts, towels. Includes thread and software.",colors:["White","Silver"],stock:true},
-            // 3. POWER BANKS
-            {id:7,name:"Mini Power Bank 5000mAh",category:"powerbank",price:299,sku:"PB-MINI-007",image:"images/products/mini-powerbank.jpg",description:"Ultra-compact with LED display, USB-C fast charging, pocket-sized for phones and earbuds.",colors:["Black","Silver","White","Blue"],stock:true},
-            {id:8,name:"66W Fast Charge Power Bank 20000mAh",category:"powerbank",price:899,sku:"PB-66W-008",image:"images/products/powerbank-66w.jpg",description:"High-speed charging, 66W PD output, digital display, USB-A/C ports. Supports laptops and phones.",colors:["Black","White"],stock:true},
-            {id:9,name:"120W Power Bank 30000mAh",category:"powerbank",price:1499,sku:"PB-120W-009",image:"images/products/powerbank-120w.jpg",description:"High-capacity with 120W output, LED screen, full protocol fast charging for phones, tablets, laptops.",colors:["Black","White"],stock:true},
-            {id:10,name:"Solar Belt Power Bank 10000mAh",category:"powerbank",price:599,sku:"PB-SOLB-010",image:"images/products/solar-belt.jpg",description:"Wearable solar charger with belt strap, solar panel recharging, USB ports. Ideal for hiking.",colors:["Black/Yellow","Green"],stock:true},
-            {id:11,name:"Rugged Solar Power Bank 20000mAh",category:"powerbank",price:799,sku:"PB-SOLR-011",image:"images/products/solar-rugged.jpg",description:"Waterproof, shockproof, wireless charging, built-in cables, LED flashlight.",colors:["Orange","Black","Green"],stock:true},
-            {id:12,name:"Solar Power Bank 50000mAh",category:"powerbank",price:1199,sku:"PB-SOL5-012",image:"images/products/solar-50000.jpg",description:"Large capacity, 4 USB outputs, IP66 waterproof, LED flashlight, fast charging. Perfect for camping.",colors:["Red","Black","Blue"],stock:true},
-            {id:13,name:"All-in-One Charging Kit",category:"powerbank",price:349,sku:"CK-ALLI-013",image:"images/products/charging-kit.jpg",description:"Portable case with USB-C, Lightning, Micro-USB cables, SIM adapters, phone stand. Universal compatibility.",colors:["Black","White"],stock:true},
-            {id:14,name:"3-in-1 Lay-Flat Wireless Charger",category:"powerbank",price:699,sku:"WC-FLAT-014",image:"images/products/wireless-charger-flat.jpg",description:"Charges phone, watch, and earbuds simultaneously. Intelligent current matching, flat desk design.",colors:["Black","White"],stock:true},
-            {id:15,name:"3-in-1 Foldable Wireless Charger",category:"powerbank",price:899,sku:"WC-FOLD-015",image:"images/products/wireless-charger-fold.jpg",description:"Foldable stand for phone, watch, earbuds. MagSafe compatible, travel-friendly.",colors:["White","Black"],stock:true},
-            // 4. POWER STATIONS
-            {id:16,name:"Compact Power Station 300W/200Wh",category:"powerstation",price:3999,sku:"PS-300W-016",image:"images/products/powerstation-300w.jpg",description:"LCD display, multiple USB ports, DC output, AC socket. For laptops and small appliances.",colors:["Gray","Black"],stock:true},
-            {id:17,name:"Multi-Outlet Power Station 500W",category:"powerstation",price:6999,sku:"PS-500W-017",image:"images/products/powerstation-500w.jpg",description:"AC outlets, USB, DC, car port, LCD screen, expandable battery. For camping/emergencies.",colors:["Gray","Black"],stock:true},
-            {id:18,name:"VTOMAN Jump 600 Power Station",category:"powerstation",price:8999,sku:"PS-VTOM-018",image:"images/products/vtoman-powerstation.jpg",description:"Expandable 600W, LiFePO4 battery, AC outlets, USB, solar input. Stackable design.",colors:["Black/Yellow","Gray"],stock:true},
-            // 5. SPEAKERS (JBL)
-            {id:19,name:"JBL Go Essential",category:"speakers",price:599,sku:"SP-JBLE-019",image:"images/products/jbl-go-essential.jpg",description:"Waterproof Bluetooth speaker, 5-hour battery, 3.1W output, compact for outdoor use.",colors:["Black","Red","Blue"],stock:true},
-            {id:20,name:"JBL Boombox 3",category:"speakers",price:7999,sku:"SP-JBLB-020",image:"images/products/jbl-boombox.jpg",description:"40W output, 24-hour battery, IPX7 waterproof, handle, deep bass, party mode.",colors:["Black","Camo"],stock:true},
-            {id:21,name:"JBL Partybox 310",category:"speakers",price:9999,sku:"SP-JBLP-021",image:"images/products/jbl-partybox.jpg",description:"250W output, LED lights, DJ controls, mic input, 12-hour battery. For events/karaoke.",colors:["Black"],stock:true},
-            {id:22,name:"JBL Go 4",category:"speakers",price:799,sku:"SP-JBL4-022",image:"images/products/jbl-go4.jpg",description:"Ultra-portable, 7-hour battery, IP67 waterproof/dustproof, bold sound.",colors:["Black","Red","Blue","Camo"],stock:true},
-            // 6. ADULT TOYS
-            {id:23,name:"Rose Vibrator with Thrusting Dildo",category:"adult",price:899,sku:"AT-ROSE-023",image:"images/products/rose-vibrator-dildo.jpg",description:"Silicone rose clitoral suction vibrator with thrusting dildo, 10 modes, waterproof, USB rechargeable.",colors:["Pink","Red","Purple"],stock:true},
-            {id:24,name:"Finger Sleeve Vibrator",category:"adult",price:299,sku:"AT-FING-024",image:"images/products/finger-vibrator.jpg",description:"Silicone finger vibrator with bullet motor, 10 speeds, waterproof, battery-powered.",colors:["Pink","Purple"],stock:true},
-            {id:25,name:"Purple Rose Clitoral Sucker",category:"adult",price:599,sku:"AT-ROSP-025",image:"images/products/rose-vibrator-purple.jpg",description:"Compact rose-shaped air pulse technology, 10 modes, waterproof, rechargeable, discreet.",colors:["Purple","Pink","Red"],stock:true},
-            // 7. CAR ACCESSORIES
-            {id:26,name:"Multi-Function Jump Starter 2000A",category:"car",price:1899,sku:"CA-JUMP-026",image:"images/products/jump-starter.jpg",description:"Portable jump starter with air compressor, tire inflator, LED light, USB ports. For 8L gas engines.",colors:["Blue","Gray"],stock:true},
-            {id:27,name:"Hoco E62 FM Transmitter",category:"car",price:399,sku:"CA-HOCO-027",image:"images/products/hoco-fm-transmitter.jpg",description:"Bluetooth FM transmitter, QC3.0 charging, LED display, hands-free calling, SD/USB music playback.",colors:["Black"],stock:true},
-            // 8. OFFICE SUPPLIES
-            {id:28,name:"A4 Paper 80gsm (500 sheets)",category:"office",price:89,sku:"OS-A4PA-028",image:"images/products/a4-paper-typek.jpg",description:"Premium white A4 paper for printers/copiers. Jam-free, high whiteness. Brands: Typek, Rotatrim, Double A.",colors:["White"],stock:true},
-            {id:29,name:"CARL RT-200 Rotary Paper Cutter",category:"office",price:599,sku:"OS-CARL-029",image:"images/products/carl-cutter.jpg",description:"18-inch rotary trimmer, grid alignment, replaceable blade. Cuts up to 10 sheets.",colors:["Black","Silver"],stock:true},
-            // 9. OTHER PRODUCTS
-            {id:30,name:"Z6 Mini Android TV Box",category:"other",price:899,sku:"OT-ANDR-030",image:"images/products/android-tv-box.jpg",description:"Android TV box with Google Assistant, 4K streaming, remote, Netflix/YouTube support.",colors:["Black"],stock:true},
-            {id:31,name:"7-Drawer Rolling Tool Cabinet",category:"other",price:3499,sku:"OT-TOOL-031",image:"images/products/tool-cabinet.jpg",description:"Rolling cabinet with lock, blue accents, includes tool set (wrenches, screwdrivers). For garage/workshop.",colors:["Gray/Blue","Red"],stock:true},
-            {id:32,name:"34\" Curved Gaming Monitor",category:"other",price:7999,sku:"OT-MONI-032",image:"images/products/gaming-monitor.jpg",description:"Ultrawide 144Hz, WQHD resolution, HDR support. Perfect for gaming and productivity.",colors:["Black"],stock:true},
-            {id:33,name:"Adjustable Dumbbell Set 20kg",category:"other",price:1299,sku:"OT-DUMB-033",image:"images/products/dumbbell-set.jpg",description:"Cast iron set with bars, plates, and case. Adjustable for home workouts.",colors:["Black"],stock:true},
-            {id:34,name:"Solar Livestock GPS Tracker",category:"other",price:1599,sku:"OT-GPS-034",image:"images/products/gps-tracker.jpg",description:"Solar-powered GPS for cattle, 16500mAh battery, real-time location, app integration.",colors:["Black"],stock:true}
-        ];
-
-        // === STATE MANAGEMENT ===
-        let cart = [];
-
-        // === NAVIGATION ===
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-            const navBar = document.getElementById('navbarNav');
-            if(navBar.classList.contains('show')) new bootstrap.Collapse(navBar).hide();
-        }
-
-        // === RENDER PRODUCTS ===
-        function createProductCard(product) {
-            return `
-                <div class="col-md-4 col-sm-6" data-category="${product.category}">
-                    <div class="product-card">
-                        <div class="product-img-wrapper" onclick="showProductDetails(${product.id})">
-                            <span class="badge ${product.stock ? 'bg-success' : 'bg-secondary'} badge-stock">${product.stock ? '✓ In Stock' : 'Out of Stock'}</span>
-                            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x400?text=Product+Image'">
-                        </div>
-                        <div class="card-body">
-                            <small class="text-muted text-uppercase" style="font-size:0.7rem">${product.category}</small>
-                            <h5 class="card-title text-truncate mt-1" onclick="showProductDetails(${product.id})" style="cursor:pointer">${product.name}</h5>
-                            <p class="text-muted small mb-2">${product.description}</p>
-                            <div class="card-price">R ${product.price.toLocaleString()}</div>
-                            <div class="vat-text">incl. VAT</div>
-                            <div class="color-options">
-                                ${product.colors.slice(0,4).map(c => `<div class="color-dot" style="background:${getColorCode(c)}" title="${c}"></div>`).join('')}
-                                ${product.colors.length>4 ? `<small class="text-muted">+${product.colors.length-4}</small>`:''}
-                            </div>
-                            <button class="btn btn-sm btn-outline-primary w-100 mt-3" onclick="addToCart(${product.id})"><i class="bi bi-cart-plus"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>`;
-        }
-
-        function getColorCode(color) {
-            const map = {'Black':'#000','White':'#fff','Red':'#dc3545','Blue':'#0d6efd','Green':'#198754','Pink':'#ff69b4','Purple':'#6f42c1','Gray':'#6c757d','Silver':'#c0c0c0','Orange':'#fd7e14','Camo':'#4b5320','Chrome':'#a8a9ad','Yellow':'#ffc107'};
-            return map[color] || '#ccc';
-        }
-
-        function renderFeatured() {
-            const container = document.getElementById('featured-products-container');
-            container.innerHTML = products.slice(0,6).map(p => createProductCard(p)).join('');
-        }
-
-        function renderShop(filter = 'all') {
-            const container = document.getElementById('shop-products-container');
-            const count = document.getElementById('product-count');
-            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
-            count.textContent = filtered.length;
-            container.innerHTML = filtered.map(p => createProductCard(p)).join('');
-        }
-
-        // === PRODUCT DETAILS ===
-        function showProductDetails(id) {
-            const p = products.find(x => x.id === id);
-            if(!p) return;
-            document.getElementById('detail-img').src = p.image;
-            document.getElementById('detail-title').innerText = p.name;
-            document.getElementById('detail-price').innerText = `R ${p.price.toLocaleString()}`;
-            document.getElementById('detail-desc').innerText = p.description;
-            document.getElementById('detail-sku').innerText = p.sku;
-            document.getElementById('detail-specs').innerHTML = p.description.split('. ').filter(s=>s.trim()).slice(0,5).map(s=>`<li><i class="bi bi-check-circle-fill text-success me-2"></i>${s}</li>`).join('');
-            document.getElementById('detail-add-btn').onclick = () => addToCart(p.id);
-            navigateTo('product-details');
-        }
-
-        // === CART ===
-        function addToCart(id) {
-            const p = products.find(x => x.id === id);
-            const existing = cart.find(x => x.id === id);
-            if(existing) existing.quantity++; else cart.push({...p, quantity:1});
-            updateCartUI();
-            alert(`${p.name} added to cart!`);
-        }
-        function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCartUI(); }
-        function updateCartUI() {
-            document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.quantity,0);
-            const container = document.getElementById('cart-items-container');
-            const totalEl = document.getElementById('cart-total');
-            if(cart.length === 0) { container.innerHTML = '<p class="text-center text-muted">Your cart is empty.</p>'; totalEl.innerText = 'R 0.00'; return; }
-            let total = 0;
-            container.innerHTML = cart.map(i => { total += i.price * i.quantity; return `<div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-3"><div class="d-flex align-items-center"><img src="${i.image}" width="60" class="rounded me-3 border" onerror="this.src='https://via.placeholder.com/60'"><div><h6 class="mb-0 fw-bold">${i.name}</h6><small class="text-muted">R ${i.price.toLocaleString()} x ${i.quantity}</small></div></div><button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${i.id})"><i class="bi bi-trash"></i></button></div>`; }).join('');
-            totalEl.innerText = `R ${total.toLocaleString()}`;
-        }
-        function toggleCart() { new bootstrap.Modal(document.getElementById('cartModal')).show(); }
-
-        // === FILTER & SEARCH ===
-        function filterProducts(category) {
-            renderShop(category);
-            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-            event.target.closest('.category-btn').classList.add('active');
-        }
-        function searchProducts() {
-            const q = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q));
-            renderShop('all');
-            document.getElementById('shop-products-container').innerHTML = filtered.map(p => createProductCard(p)).join('');
-            document.getElementById('product-count').textContent = filtered.length;
-        }
-
-        // === INIT ===
-        window.addEventListener('DOMContentLoaded', () => {
-            renderFeatured();
-            renderShop();
-            document.getElementById('current-date').innerText = new Date().toLocaleDateString();
-            setTimeout(() => { document.getElementById('cookie-banner').style.display = 'block'; }, 1000);
-        });
-    </script>
+    
+    <!-- Custom JavaScript (Load Order Matters) -->
+    <script src="api/config.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
